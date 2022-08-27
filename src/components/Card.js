@@ -1,25 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Card() {
+function Card(props) {
     return (
         <Container>
           <Image>
-            <img src="https://source.unsplash.com/WLxQvbMyfas"/>
+            <img src={props.img}/>
           </Image>
-
           <Text>
             <div className="country">
               <img src="images/map-pin.png"/>
-              <p>australia</p>
-              <a href="">View on Google Maps</a>
+              <p>{props.country}</p>
+              <a href={props.googlMapLink}>View on Google Maps</a>
             </div>
-            <p className="title">Mount Fuji</p>
-            <p className="date">22 Jan, 2022 - 3 Feb 2022</p>
-            <p className="description">
-              Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.
-            </p>
-
+            <p className="title">{props.placeName}</p>
+            <p className="date">{props.startDate} - {props.endDate}</p>
+            <p className="description">{props.description}</p>
           </Text>
         </Container>
     )
@@ -30,7 +26,7 @@ export default Card
 const Container=styled.div`
   height: 180px;
   width: 510px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   display:flex;
   overflow: hidden;
 `

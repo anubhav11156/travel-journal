@@ -1,17 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
+import {data} from '../cardData'
 
 function Home() {
+  const cards = data.map((card)=>{
+    return (
+      <Card
+        placeName={card.placeName}
+        img={card.img}
+        country={card.country}
+        startDate={card.date.startDate}
+        endDate={card.date.endDate}
+        description={card.description}
+        googlMapLink={card.googlMapLink}
+      />
+    )
+  })
     return (
         <Container>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {cards}
         </Container>
     )
 }
